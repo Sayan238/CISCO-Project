@@ -1,0 +1,1 @@
+PC1 (192.168.20.10) -> Switch0 -> Router0 -> VLAN 30

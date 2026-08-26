@@ -1,0 +1,4 @@
+Corp_DHCP (10.1.10.10) [Fa0/1] -> Switch0 [Fa0/2] -> Attacker_PC1
+                                  [Fa0/3] -> Attacker_PC2
+                                  [Fa0/4] -> Attacker_PC3
+                                  [Fa0/5] -> Legitimate_PC (Client)

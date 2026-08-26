@@ -1,0 +1,8 @@
+Pool Range: 10.1.10.100 - 10.1.10.102 (Max Users: 3)
+Active Leases:
+ - 10.1.10.100 leased to MAC 0001.43AA.1111 (Attacker_PC1)
+ - 10.1.10.101 leased to MAC 0002.43BB.2222 (Attacker_PC2)
+ - 10.1.10.102 leased to MAC 0003.43CC.3333 (Attacker_PC3)
+
+Legitimate_PC Command Prompt > ipconfig /renew
+Output: "DHCP request failed. APIPA address assigned."

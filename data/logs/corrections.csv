@@ -1,0 +1,7 @@
+correction_id,case_id,decision,original_diagnosis,human_correction,rejection_reason,reviewer,timestamp
+CORR-69AB3F42,NET-001,REJECTED,"{""case_id"": ""NET-001"", ""root_cause"": ""Access port assigned to VLAN 20 instead of expected VLAN 10"", ""confidence"": 0.9, ""evidence"": [""FastEthernet0/1 configured in VLAN 20, host requires VLAN 10""], ""next_command"": ""show vlan brief"", ""expected_fix"": ""Assign SW1 Fa0/1 to VLAN 10"", ""human_review_required"": true, ""generated_at"": ""2026-08-25T15:40:50.500362""}",,"ok
+",Network Engineer,2026-08-25T15:43:02.100639
+NET-003,2026-08-26T06:35:09.244034+00:00,,,
+NET-005,2026-08-26T06:48:55.063672+00:00,,,
+NET-023,2026-08-26T07:02:51.950903+00:00,,,
+NET-004,2026-08-26T07:11:54.616420+00:00,,,

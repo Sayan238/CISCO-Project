@@ -1,0 +1,102 @@
+CASE ID: NET-004
+
+TITLE:
+VLAN 30 Not Allowed on Trunk
+
+SYMPTOM:
+The device connected to Switch0 Fa0/3 cannot communicate with the VLAN 30 gateway.
+
+TOPOLOGY:
+Device/Server1 -> Switch0 Fa0/3 -> Switch0 Fa0/4 -> Router0
+
+EXPECTED VLAN:
+VLAN 30 - SERVER
+
+EXPECTED PORT:
+FastEthernet0/3
+
+TRUNK PORT:
+FastEthernet0/4
+
+EXPECTED CONFIGURATION:
+Fa0/4 should be a trunk and should allow VLAN 30.
+
+FAULT INTRODUCED:
+VLAN 30 was removed from the allowed VLAN list on Switch0 Fa0/4.
+
+FAULT COMMAND:
+interface fastEthernet 0/4
+switchport trunk allowed vlan 1,10,20
+
+EVIDENCE COMMAND:
+show interfaces trunk
+
+EVIDENCE:
+
+Fa0/4 is still operating as a trunk.
+
+Fa0/4:
+Mode: on
+Encapsulation: 802.1q
+Status: trunking
+Native VLAN: 1
+
+VLANs allowed on trunk:
+1,10,20
+
+VLAN 30 is NOT allowed on the trunk.
+
+VLAN 30 still exists on the switch:
+
+VLAN 30 SERVER active Fa0/3
+
+Therefore, the problem is not that VLAN 30 is missing.
+The problem is that VLAN 30 is not allowed on the trunk.
+
+VLAN TABLE EVIDENCE:
+Command:
+show vlan brief
+
+VLAN 10 STUDENT - active - Fa0/1
+VLAN 20 STAFF - active - Fa0/2
+VLAN 30 SERVER - active - Fa0/3
+
+TRUNK EVIDENCE:
+Command:
+show interfaces trunk
+
+Fa0/4:
+Vlans allowed on trunk:
+1,10,20
+
+VLAN 30 is missing from the allowed VLAN list.
+
+EXPECTED FAULT:
+VLAN 30 is not allowed on the Fa0/4 trunk.
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+VLAN Trunking / 802.1Q
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+show interfaces trunk
+
+EXPECTED FIX:
+Allow VLAN 30 on Switch0 Fa0/4 trunk.
+
+FIX COMMAND:
+configure terminal
+interface fastEthernet 0/4
+switchport trunk allowed vlan 1,10,20,30
+end
+
+EXPECTED RESULT AFTER FIX:
+VLAN 30 should appear in the allowed VLAN list.
+VLAN 30 should appear in the active VLAN list on the trunk.
+VLAN 30 should appear in the spanning-tree forwarding VLAN list.
+Fa0/4 should remain in trunking state.

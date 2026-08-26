@@ -1,0 +1,1 @@
+Laptop0 -> Switch0 (Access Port Fa0/2) -> Rogue_Router (LAN Port Fa0/1) -> Switch0 (Trunk Gi0/1) -> Corporate_DHCP_Server (10.1.10.10)

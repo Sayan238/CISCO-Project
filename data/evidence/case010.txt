@@ -1,0 +1,99 @@
+NET-010
+
+Title:
+Router VLAN 10 Subinterface Shutdown
+
+Symptom:
+PC in VLAN 10 cannot reach its default gateway 192.168.10.1. Ping shows Request timed out with 100% packet loss.
+
+Topology:
+PC - Switch0 - Router0
+
+Expected Fault:
+GigabitEthernet0/0/0.10 is administratively down because the shutdown command is configured on the VLAN 10 router subinterface.
+
+OSI Layer:
+Layer 3
+
+Concept:
+Router-on-a-Stick / Interface State
+
+Severity:
+High
+
+Expected Next Command:
+show ip interface brief
+
+Expected Fix:
+Enter interface GigabitEthernet0/0/0.10 and use the no shutdown command.
+
+Commands Used:
+
+enable
+configure terminal
+interface gigabitEthernet 0/0/0.10
+shutdown
+end
+
+Verification:
+
+show ip interface brief
+
+The faulty output shows:
+
+GigabitEthernet0/0/0.10
+192.168.10.1
+administratively down
+down
+
+Fix:
+
+enable
+configure terminal
+interface gigabitEthernet 0/0/0.10
+no shutdown
+end
+
+Final Verification:
+
+show ip interface brief
+
+Expected result:
+
+GigabitEthernet0/0/0.10
+192.168.10.1
+up
+up
+
+PC Test:
+
+ping 192.168.10.1
+
+Expected result after fixing:
+
+Reply from 192.168.10.1
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)
+
+Problem Flow:
+
+PC VLAN 10
+↓
+Ping 192.168.10.1
+↓
+Request timed out
+↓
+show ip interface brief
+↓
+G0/0/0.10 administratively down
+↓
+show running-config
+↓
+shutdown found
+↓
+no shutdown
+↓
+G0/0/0.10 becomes up/up
+↓
+Ping 192.168.10.1
+↓
+SUCCESS

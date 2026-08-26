@@ -1,0 +1,72 @@
+CASE ID:
+NET-013
+
+TITLE:
+Correct VLAN Assignment - Reference Case
+
+PKA FILE NAME:
+NET-013-Correct.pkt
+
+OBJECTIVE:
+Provide a correct reference configuration for VLAN assignment and verify that the end device is connected to the intended VLAN.
+
+TOPOLOGY:
+PC1 -> Switch0 -> Router0
+
+VLAN INFORMATION:
+VLAN 10 = STUDENT
+VLAN 20 = STAFF
+VLAN 30 = SERVER
+
+DEVICE:
+PC1
+
+EXPECTED CONFIGURATION:
+PC1 is connected to the correct access port.
+The access port belongs to the intended VLAN.
+
+EVIDENCE COMMANDS:
+show vlan brief
+show running-config
+show interfaces switchport
+
+EXPECTED RESULT:
+The PC access port appears under the correct VLAN in show vlan brief.
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+VLAN
+
+SEVERITY:
+Low
+
+STATUS:
+Correct / Reference Configuration
+
+EXPECTED NEXT COMMAND:
+show vlan brief
+
+VERIFICATION:
+show vlan brief
+show running-config
+
+EXPECTED FINAL STATE:
+The required access port is assigned to the correct VLAN.
+The VLAN is active.
+The connected device can communicate with devices in the same VLAN.
+
+TROUBLESHOOTING FLOW:
+
+Check PC connectivity
+        ↓
+Check switch VLAN assignment
+        ↓
+show vlan brief
+        ↓
+Verify access port
+        ↓
+Correct VLAN confirmed
+        ↓
+NET-013 COMPLETE

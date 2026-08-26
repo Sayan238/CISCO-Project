@@ -1,0 +1,6 @@
+Domain: VLAN Troubleshooting
+Focus Points:
+- Check switchport access vlan configuration on host interfaces.
+- Verify VLAN existence in `show vlan brief`.
+- Verify access port status and admin state.
+- Inspect interface VLAN membership vs PC configured IP subnet.

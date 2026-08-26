@@ -1,0 +1,6 @@
+Domain: DHCP Troubleshooting
+Focus Points:
+- Inspect `show ip dhcp pool` for configured subnet network statement.
+- Verify `default-router` and `dns-server` options distributed by DHCP.
+- Check excluded IP address ranges and pool exhaustion (`show ip dhcp binding`).
+- Detect unauthorized or rogue DHCP servers offering incorrect IP configurations.

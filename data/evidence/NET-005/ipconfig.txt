@@ -1,0 +1,12 @@
+Fa0/3 is incorrectly operating as a trunk.
+
+Fa0/3:
+Mode: on
+Encapsulation: 802.1q
+Status: trunking
+Native VLAN: 1
+
+VLANs allowed on Fa0/3:
+1-1005
+
+Fa0/3 should not be a trunk because it is the server/device access port for VLAN 30.

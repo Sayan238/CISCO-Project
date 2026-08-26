@@ -1,0 +1,312 @@
+[
+  {
+    "case_id": "NET-001",
+    "timestamp": "2026-08-26T07:41:52.451769+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-001",
+      "root_cause": "Rule Engine Detection: Wrong VLAN assignment",
+      "evidence": [
+        "=== file: case.txt ===",
+        "case id: net-001",
+        "title:"
+      ],
+      "expected_fix": "Assign SW1 Fa0/1 to VLAN 10"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Rule Engine Detection: Wrong VLAN assignment",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Rule Engine Detection: Wrong VLAN assignment",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-003",
+    "timestamp": "2026-08-26T07:01:13.836757+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-003",
+      "root_cause": "VLAN Missing: VLAN 30 has been deleted or does not exist in the switch VLAN database.",
+      "evidence": [
+        "VLAN 30 absent from show vlan brief output"
+      ],
+      "expected_fix": "Create VLAN 30 on Switch0 and assign interface Fa0/3 to VLAN 30"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] VLAN Missing: VLAN 30 has been deleted or does not exist in the switch VLAN database.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] VLAN Missing: VLAN 30 has been deleted or does not exist in the switch VLAN database.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-002",
+    "timestamp": "2026-08-26T07:16:08.447340+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-002",
+      "root_cause": "Trunking Disabled: FastEthernet0/4 is not configured as a 802.1Q trunk link.",
+      "evidence": [
+        "FastEthernet0/4 missing from active trunk list in show interfaces trunk"
+      ],
+      "expected_fix": "Configure FastEthernet0/4 as switchport mode trunk"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Trunking Disabled: FastEthernet0/4 is not configured as a 802.1Q trunk link.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Trunking Disabled: FastEthernet0/4 is not configured as a 802.1Q trunk link.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-005",
+    "timestamp": "2026-08-26T07:01:19.572790+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-005",
+      "root_cause": "Access Port in Trunk Mode: Interface Fa0/3 connected to end host is incorrectly set to trunk mode.",
+      "evidence": [
+        "Fa0/3 listed as trunk interface in show interfaces trunk"
+      ],
+      "expected_fix": "Configure Fa0/3 as switchport mode access and assign switchport access vlan 30"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Access Port in Trunk Mode: Interface Fa0/3 connected to end host is incorrectly set to trunk mode.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Access Port in Trunk Mode: Interface Fa0/3 connected to end host is incorrectly set to trunk mode.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-004",
+    "timestamp": "2026-08-26T07:11:54.616420+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-004",
+      "root_cause": "VLAN Not Allowed on Trunk: VLAN 30 is pruned or excluded from allowed VLAN list on Fa0/4 trunk.",
+      "evidence": [
+        "VLAN 30 missing from allowed VLAN list in show interfaces trunk"
+      ],
+      "expected_fix": "Add VLAN 30 to switchport trunk allowed vlan list on Fa0/4"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] VLAN Not Allowed on Trunk: VLAN 30 is pruned or excluded from allowed VLAN list on Fa0/4 trunk.",
+    "ai_confidence": 95,
+    "human_decision": "REJECTED",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] VLAN Not Allowed on Trunk: VLAN 30 is pruned or excluded from allowed VLAN list on Fa0/4 trunk.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-009",
+    "timestamp": "2026-08-26T07:01:21.916593+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-009",
+      "root_cause": "Rule Engine Detection: ACL blocks traffic from source host 192.168.20.10 to destination host 192.168.30.10",
+      "evidence": [
+        "=== file: case.txt ===",
+        "case id: net-009",
+        "title:"
+      ],
+      "expected_fix": "Configure ACL 101 to deny 192.168.20.10 to 192.168.30.10 and permit all other IP traffic"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Rule Engine Detection: ACL blocks traffic from source host 192.168.20.10 to destination host 192.168.30.10",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Rule Engine Detection: ACL blocks traffic from source host 192.168.20.10 to destination host 192.168.30.10",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-011",
+    "timestamp": "2026-08-26T07:12:43.949359+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-011",
+      "root_cause": "NAT Inside/Outside Misconfiguration: G0/0/0.20 configured as NAT outside instead of NAT inside.",
+      "evidence": [
+        "show ip nat statistics shows G0/0/0.20 listed under Outside interfaces"
+      ],
+      "expected_fix": "Remove ip nat outside from G0/0/0.20 and add ip nat inside"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] NAT Inside/Outside Misconfiguration: G0/0/0.20 configured as NAT outside instead of NAT inside.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] NAT Inside/Outside Misconfiguration: G0/0/0.20 configured as NAT outside instead of NAT inside.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-012",
+    "timestamp": "2026-08-26T07:01:26.120565+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-012",
+      "root_cause": "DHCP Wrong Network: DHCP pool configured for subnet 192.168.40.0/24 instead of 192.168.30.0/24.",
+      "evidence": [
+        "show ip dhcp pool shows network 192.168.40.0 255.255.255.0"
+      ],
+      "expected_fix": "Reconfigure DHCP pool network statement to 192.168.30.0 255.255.255.0"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] DHCP Wrong Network: DHCP pool configured for subnet 192.168.40.0/24 instead of 192.168.30.0/24.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] DHCP Wrong Network: DHCP pool configured for subnet 192.168.40.0/24 instead of 192.168.30.0/24.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-013",
+    "timestamp": "2026-08-26T07:01:27.870194+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-013",
+      "root_cause": "No Fault Detected: Reference case with correct VLAN assignment.",
+      "evidence": [
+        "Fa0/1 correctly assigned to VLAN 10"
+      ],
+      "expected_fix": "No fix required - network configuration is correct"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] No Fault Detected: Reference case with correct VLAN assignment.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] No Fault Detected: Reference case with correct VLAN assignment.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-014",
+    "timestamp": "2026-08-26T07:01:35.482832+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-014",
+      "root_cause": "No Fault Detected: Reference case with correct 802.1Q trunking configuration.",
+      "evidence": [
+        "Trunk operational with required VLANs allowed"
+      ],
+      "expected_fix": "No fix required - trunk configuration is correct"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] No Fault Detected: Reference case with correct 802.1Q trunking configuration.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] No Fault Detected: Reference case with correct 802.1Q trunking configuration.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-015",
+    "timestamp": "2026-08-26T07:14:06.766499+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-015",
+      "root_cause": "DHCP Scope Mismatch: DHCP pool network statement does not match LAN subnet.",
+      "evidence": [
+        "DHCP pool scope configuration mismatch"
+      ],
+      "expected_fix": "Reconfigure DHCP pool network statement to match intended LAN"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] DHCP Scope Mismatch: DHCP pool network statement does not match LAN subnet.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] DHCP Scope Mismatch: DHCP pool network statement does not match LAN subnet.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-016",
+    "timestamp": "2026-08-26T07:02:04.442995+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-016",
+      "root_cause": "Incorrect DHCP DNS Server IP: DHCP pool distributes wrong DNS server IP address.",
+      "evidence": [
+        "DHCP pool option dns-server points to invalid IP address"
+      ],
+      "expected_fix": "Update dns-server address under DHCP pool to 192.168.10.50"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Incorrect DHCP DNS Server IP: DHCP pool distributes wrong DNS server IP address.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Incorrect DHCP DNS Server IP: DHCP pool distributes wrong DNS server IP address.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-017",
+    "timestamp": "2026-08-26T07:02:02.160484+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-017",
+      "root_cause": "Rule Engine Detection: GigabitEthernet0/0/0 has been administratively shut down",
+      "evidence": [
+        "=== file: case.txt ===",
+        "case id: case-017",
+        "title:"
+      ],
+      "expected_fix": "Enter interface GigabitEthernet0/0/0 and issue no shutdown"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Rule Engine Detection: GigabitEthernet0/0/0 has been administratively shut down",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Rule Engine Detection: GigabitEthernet0/0/0 has been administratively shut down",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-023",
+    "timestamp": "2026-08-26T07:02:51.950903+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-023",
+      "root_cause": "No Fault Detected: Static NAT port forwarding operating correctly.",
+      "evidence": [
+        "Valid static NAT translation entry in show ip nat translations"
+      ],
+      "expected_fix": "No fix required - system operating as intended"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] No Fault Detected: Static NAT port forwarding operating correctly.",
+    "ai_confidence": 95,
+    "human_decision": "EDITED",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] No Fault Detected: Static NAT port forwarding operating correctly.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-010",
+    "timestamp": "2026-08-26T07:45:26.165546+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-010",
+      "root_cause": "VLAN 10 Router Subinterface Shutdown: GigabitEthernet0/0/0.10 is administratively down.",
+      "evidence": [
+        "G0/0/0.10 state: administratively down"
+      ],
+      "expected_fix": "Enter interface G0/0/0.10 and execute no shutdown"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] VLAN 10 Router Subinterface Shutdown: GigabitEthernet0/0/0.10 is administratively down.",
+    "ai_confidence": 95,
+    "human_decision": "PENDING",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] VLAN 10 Router Subinterface Shutdown: GigabitEthernet0/0/0.10 is administratively down.",
+    "reviewer_notes": ""
+  },
+  {
+    "case_id": "NET-006",
+    "timestamp": "2026-08-26T07:11:39.564562+00:00",
+    "rule_checker_result": {
+      "rule_match": true,
+      "rule_case": "NET-006",
+      "root_cause": "Subinterface Shutdown: Router subinterface G0/0/0.30 is administratively down.",
+      "evidence": [
+        "G0/0/0.30 marked administratively down in show ip interface brief"
+      ],
+      "expected_fix": "Enter interface G0/0/0.30 and execute no shutdown"
+    },
+    "ai_root_cause": "[Rule Engine Fallback] Subinterface Shutdown: Router subinterface G0/0/0.30 is administratively down.",
+    "ai_confidence": 95,
+    "human_decision": "ACCEPTED",
+    "human_correction": null,
+    "final_root_cause": "[Rule Engine Fallback] Subinterface Shutdown: Router subinterface G0/0/0.30 is administratively down.",
+    "reviewer_notes": ""
+  }
+]

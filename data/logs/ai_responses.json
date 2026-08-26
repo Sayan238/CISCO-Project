@@ -1,0 +1,350 @@
+[
+  {
+    "case_id": "NET-012",
+    "root_cause": "DHCP pool network statement does not match host VLAN IP subnet",
+    "confidence": 0.9,
+    "evidence": [
+      "DHCP pool statement configured for wrong IP network"
+    ],
+    "next_command": "show ip dhcp pool",
+    "expected_fix": "Change the DHCP pool network to 192.168.30.0 255.255.255.0 and default gateway to 192.168.30.1",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:18:54.074923"
+  },
+  {
+    "case_id": "NET-012",
+    "root_cause": "DHCP pool network statement does not match host VLAN IP subnet",
+    "confidence": 0.9,
+    "evidence": [
+      "DHCP pool statement configured for wrong IP network"
+    ],
+    "next_command": "show ip dhcp pool",
+    "expected_fix": "Change the DHCP pool network to 192.168.30.0 255.255.255.0 and default gateway to 192.168.30.1",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:22:16.251563"
+  },
+  {
+    "case_id": "NET-012",
+    "root_cause": "DHCP pool network statement does not match host VLAN IP subnet",
+    "confidence": 0.9,
+    "evidence": [
+      "DHCP pool statement configured for wrong IP network"
+    ],
+    "next_command": "show ip dhcp pool",
+    "expected_fix": "Change the DHCP pool network to 192.168.30.0 255.255.255.0 and default gateway to 192.168.30.1",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:22:16.274833"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:25:33.973809"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:25:34.016947"
+  },
+  {
+    "case_id": "NET-002",
+    "root_cause": "Trunking disabled on inter-switch link interface",
+    "confidence": 0.9,
+    "evidence": [
+      "Interface oper status down or configured in access mode instead of trunk"
+    ],
+    "next_command": "show interfaces trunk",
+    "expected_fix": "Configure Switch0 Fa0/4 as a trunk",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:35:13.974898"
+  },
+  {
+    "case_id": "NET-003",
+    "root_cause": "Required VLAN 30 is missing from the VLAN database",
+    "confidence": 0.9,
+    "evidence": [
+      "VLAN 30 absent in show vlan brief output"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Recreate VLAN 30 and assign Fa0/3 to VLAN 30",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:35:15.699470"
+  },
+  {
+    "case_id": "NET-013",
+    "root_cause": "No fault - VLAN configuration is correct",
+    "confidence": 0.98,
+    "evidence": [
+      "VLAN assignment matches network design"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "No fix required - VLAN assignment is correct",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:35:20.784147"
+  },
+  {
+    "case_id": "NET-029",
+    "root_cause": "No fault - Static NAT mapping is operating correctly",
+    "confidence": 0.98,
+    "evidence": [
+      "show ip nat translations displays correct active translation"
+    ],
+    "next_command": "show ip nat translations",
+    "expected_fix": "No fix required if the configured destination NAT translation is correct",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:35:38.719129"
+  },
+  {
+    "case_id": "NET-014",
+    "root_cause": "No fault - 802.1Q trunk operates correctly",
+    "confidence": 0.98,
+    "evidence": [
+      "Trunk status operational and required VLANs allowed"
+    ],
+    "next_command": "show interfaces trunk",
+    "expected_fix": "No fix required - trunk configuration is correct",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:35:53.908637"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:38:54.294022"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:38:54.318822"
+  },
+  {
+    "case_id": "NET-002",
+    "root_cause": "Trunking disabled on inter-switch link interface",
+    "confidence": 0.9,
+    "evidence": [
+      "Interface oper status down or configured in access mode instead of trunk"
+    ],
+    "next_command": "show interfaces trunk",
+    "expected_fix": "Configure Switch0 Fa0/4 as a trunk",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:40:45.793539"
+  },
+  {
+    "case_id": "NET-003",
+    "root_cause": "Required VLAN 30 is missing from the VLAN database",
+    "confidence": 0.9,
+    "evidence": [
+      "VLAN 30 absent in show vlan brief output"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Recreate VLAN 30 and assign Fa0/3 to VLAN 30",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:40:48.338372"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:40:50.500362"
+  },
+  {
+    "case_id": "NET-012",
+    "root_cause": "DHCP pool network statement does not match host VLAN IP subnet",
+    "confidence": 0.9,
+    "evidence": [
+      "DHCP pool statement configured for wrong IP network"
+    ],
+    "next_command": "show ip dhcp pool",
+    "expected_fix": "Change the DHCP pool network to 192.168.30.0 255.255.255.0 and default gateway to 192.168.30.1",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:41:13.196751"
+  },
+  {
+    "case_id": "NET-012",
+    "root_cause": "DHCP pool network statement does not match host VLAN IP subnet",
+    "confidence": 0.9,
+    "evidence": [
+      "DHCP pool statement configured for wrong IP network"
+    ],
+    "next_command": "show ip dhcp pool",
+    "expected_fix": "Change the DHCP pool network to 192.168.30.0 255.255.255.0 and default gateway to 192.168.30.1",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:41:13.230309"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:41:34.725219"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:41:34.749077"
+  },
+  {
+    "case_id": "NET-002",
+    "root_cause": "Trunking disabled on inter-switch link interface",
+    "confidence": 0.9,
+    "evidence": [
+      "Interface oper status down or configured in access mode instead of trunk"
+    ],
+    "next_command": "show interfaces trunk",
+    "expected_fix": "Configure Switch0 Fa0/4 as a trunk",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:43:18.078132"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:44:07.506224"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T15:44:07.576634"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:09:20.892665"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:09:20.925992"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:37:19.035112"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:37:19.055395"
+  },
+  {
+    "case_id": "NET-010",
+    "root_cause": "Router subinterface or LAN interface administratively down",
+    "confidence": 0.9,
+    "evidence": [
+      "show ip interface brief indicates interface status is administratively down"
+    ],
+    "next_command": "show ip interface brief",
+    "expected_fix": "Enter interface GigabitEthernet0/0/0.10 and use no shutdown",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:42:10.616366"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:42:58.910136"
+  },
+  {
+    "case_id": "NET-001",
+    "root_cause": "Access port assigned to VLAN 20 instead of expected VLAN 10",
+    "confidence": 0.9,
+    "evidence": [
+      "FastEthernet0/1 configured in VLAN 20, host requires VLAN 10"
+    ],
+    "next_command": "show vlan brief",
+    "expected_fix": "Assign SW1 Fa0/1 to VLAN 10",
+    "human_review_required": true,
+    "generated_at": "2026-08-25T19:42:58.928721"
+  }
+]

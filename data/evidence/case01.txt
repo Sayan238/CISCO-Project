@@ -1,0 +1,66 @@
+CASE ID: NET-001
+
+TITLE:
+Wrong VLAN Assignment
+
+SYMPTOM:
+PC1 cannot reach its expected default gateway.
+
+TOPOLOGY:
+PC1 -> Switch0 -> Router0
+
+PC1 NETWORK:
+IP Address: 192.168.10.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+
+EXPECTED VLAN:
+VLAN 10 - STUDENT
+
+ACTUAL SWITCH PORT:
+FastEthernet0/1
+
+ACTUAL VLAN:
+VLAN 20 - STAFF
+
+EVIDENCE COMMAND:
+show vlan brief
+
+EVIDENCE:
+VLAN 10 STUDENT is active.
+VLAN 20 STAFF is active.
+FastEthernet0/1 is assigned to VLAN 20.
+FastEthernet0/2 is assigned to VLAN 20.
+FastEthernet0/3 is assigned to VLAN 30.
+
+TRUNK EVIDENCE:
+Command: show interfaces trunk
+
+FastEthernet0/4 is trunking.
+Encapsulation: 802.1Q
+Native VLAN: 1
+VLANs allowed on trunk: 1-1005
+VLANs allowed and active: 1,10,20,30
+
+EXPECTED FAULT:
+FastEthernet0/1 is assigned to VLAN 20, but PC1 should be in VLAN 10.
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+VLAN
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+show vlan brief
+
+EXPECTED FIX:
+Configure FastEthernet0/1 as an access port in VLAN 10.
+
+FIX COMMAND:
+interface fastEthernet 0/1
+switchport mode access
+switchport access vlan 10

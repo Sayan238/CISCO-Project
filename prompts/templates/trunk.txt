@@ -1,0 +1,6 @@
+Domain: 802.1Q Trunking Troubleshooting
+Focus Points:
+- Check switchport mode trunk on inter-switch and router-on-a-stick links.
+- Verify allowed VLAN list on trunk interfaces (`show interfaces trunk`).
+- Check native VLAN consistency across connected trunk ports.
+- Ensure subinterface VLAN encapsulation matches the switch trunking setup.

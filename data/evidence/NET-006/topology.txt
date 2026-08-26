@@ -1,0 +1,1 @@
+Device/Server1 -> Switch0 Fa0/3 -> Switch0 Fa0/4 -> Router0 G0/0/0.30

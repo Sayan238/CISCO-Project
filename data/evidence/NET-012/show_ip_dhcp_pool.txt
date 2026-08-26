@@ -1,0 +1,157 @@
+NET-012
+
+Title:
+DHCP Wrong Network Configuration
+
+PKA File Name:
+NET-012_DHCP_Wrong_Network.pka
+
+Objective:
+Create and troubleshoot a DHCP configuration where the DHCP pool uses the wrong network.
+
+Topology:
+PC - Switch0 - Router0
+
+VLAN:
+VLAN 30
+
+Actual Network:
+192.168.30.0/24
+
+Actual Gateway:
+192.168.30.1
+
+FAULT:
+DHCP pool is configured for the wrong network.
+
+Wrong DHCP Configuration:
+
+ip dhcp pool VLAN30_DHCP
+network 192.168.40.0 255.255.255.0
+default-router 192.168.40.1
+dns-server 8.8.8.8
+
+Fault Evidence:
+
+PC ipconfig:
+
+IPv4 Address: 0.0.0.0
+Subnet Mask: 0.0.0.0
+Default Gateway: 0.0.0.0
+
+Router DHCP Pool:
+
+Network: 192.168.40.0/24
+Gateway: 192.168.40.1
+
+Actual VLAN 30:
+
+Network: 192.168.30.0/24
+Gateway: 192.168.30.1
+
+show ip dhcp binding:
+
+Leased addresses: 0
+
+Expected Next Command:
+show ip dhcp pool
+
+Other Verification Commands:
+
+show ip dhcp binding
+show running-config
+ipconfig
+
+PROBLEM:
+
+The DHCP pool is configured for:
+192.168.40.0/24
+
+But VLAN 30 actually uses:
+192.168.30.0/24
+
+Therefore the PC cannot obtain a valid DHCP configuration.
+
+FIX:
+
+enable
+configure terminal
+
+ip dhcp pool VLAN30_DHCP
+network 192.168.30.0 255.255.255.0
+default-router 192.168.30.1
+dns-server 8.8.8.8
+exit
+
+ip dhcp excluded-address 192.168.30.1 192.168.30.10
+
+end
+
+FINAL VERIFICATION:
+
+show ip dhcp pool
+show ip dhcp binding
+
+PC:
+
+ipconfig
+
+Expected PC Configuration:
+
+IP Address: 192.168.30.x
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.30.1
+DNS Server: 8.8.8.8
+
+Test:
+
+ping 192.168.30.1
+
+Expected Result:
+
+Reply from 192.168.30.1
+Packets: Sent = 4, Received = 4, Lost = 0
+
+Expected DHCP Binding:
+
+A 192.168.30.x address should appear in:
+show ip dhcp binding
+
+OSI Layer:
+Layer 3
+
+Concept:
+DHCP
+
+Severity:
+High
+
+Expected Next Command:
+show ip dhcp pool
+
+Expected Fix:
+Change the DHCP pool network from 192.168.40.0/24 to 192.168.30.0/24 and change the default gateway to 192.168.30.1.
+
+Troubleshooting Flow:
+
+PC requests DHCP
+↓
+PC gets 0.0.0.0
+↓
+Run ipconfig
+↓
+Check Router DHCP
+↓
+show ip dhcp pool
+↓
+Wrong network found
+↓
+Correct DHCP network
+↓
+Renew DHCP on PC
+↓
+PC receives 192.168.30.x
+↓
+ping 192.168.30.1
+↓
+SUCCESS

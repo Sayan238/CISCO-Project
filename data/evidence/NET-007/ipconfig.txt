@@ -1,0 +1,6 @@
+GigabitEthernet0/0/0.30
+IP Address: 192.168.30.254
+Status: up
+Protocol: up
+
+The interface is operational, but the configured IP address is incorrect.

@@ -1,0 +1,6 @@
+Domain: Wireless (Wi-Fi) Troubleshooting
+Focus Points:
+- Check SSID and WPA2-PSK passphrase match between client and AP.
+- Verify frequency band support (2.4 GHz vs 5 GHz) for legacy clients.
+- Check AP transmit power and coverage overlap for sticky client roaming issues.
+- Verify wireless router DHCP pool and gateway connectivity.

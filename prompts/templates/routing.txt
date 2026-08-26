@@ -1,0 +1,6 @@
+Domain: IP Routing & Router-on-a-Stick Troubleshooting
+Focus Points:
+- Check subinterface administrative status (`show ip interface brief`).
+- Verify IP address and subnet mask on subinterfaces vs PC default gateways.
+- Verify static routes or routing table entries (`show ip route`).
+- Check default gateway settings on end-user hosts.

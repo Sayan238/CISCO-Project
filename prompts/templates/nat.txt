@@ -1,0 +1,6 @@
+Domain: Network Address Translation (NAT) Troubleshooting
+Focus Points:
+- Check `ip nat inside` and `ip nat outside` interface assignments.
+- Inspect NAT ACL match statements against actual inside host IP subnet.
+- Check static NAT translation table (`show ip nat translations`).
+- Verify inside local vs inside global IP and port forwarding configuration.

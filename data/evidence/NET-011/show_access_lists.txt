@@ -1,0 +1,107 @@
+NET-011
+
+Title:
+NAT Inside/Outside Misconfiguration
+
+PKA File Name:
+NET-011_NAT_Inside_Outside_Misconfiguration.pka
+
+Objective:
+Create and troubleshoot a Static NAT configuration where the NAT inside/outside interface roles are incorrectly configured.
+
+Topology:
+PC1 (192.168.20.10) -> Switch0 -> Router0 -> VLAN 30
+
+IP Information:
+Inside Local: 192.168.20.10
+Inside Global: 192.168.30.100
+
+Inside Interface:
+GigabitEthernet0/0/0.20
+
+Outside Interface:
+GigabitEthernet0/0/0.30
+
+FAULT:
+Static NAT is configured, but the NAT interface roles are incorrect.
+
+Incorrect Configuration:
+G0/0/0.20 = ip nat outside
+G0/0/0.30 = ip nat outside
+
+Static NAT:
+ip nat inside source static 192.168.20.10 192.168.30.100
+
+Expected Next Command:
+show ip nat statistics
+
+Fault Verification:
+show ip nat translations
+show ip nat statistics
+show running-config
+
+Expected Fault:
+NAT statistics shows both G0/0/0.20 and G0/0/0.30 as Outside Interfaces and no Inside Interface.
+
+FIX:
+
+enable
+configure terminal
+
+interface gigabitEthernet 0/0/0.20
+no ip nat outside
+ip nat inside
+exit
+
+interface gigabitEthernet 0/0/0.30
+ip nat outside
+exit
+
+end
+
+FINAL VERIFICATION:
+
+show ip nat statistics
+show ip nat translations
+show running-config
+
+Expected Final State:
+
+G0/0/0.20 = ip nat inside
+G0/0/0.30 = ip nat outside
+
+Static NAT:
+192.168.20.10 -> 192.168.30.100
+
+Important Testing Note:
+Do not use ping 192.168.30.10 to verify NAT because NET-009 already has ACL 101 blocking:
+192.168.20.10 -> 192.168.30.10
+
+Also, ping 192.168.30.20 only works if a real device with that IP exists.
+
+OSI Layer:
+Layer 3
+
+Concept:
+NAT
+
+Severity:
+High
+
+Troubleshooting Flow:
+
+Static NAT configured
+        ↓
+Verify NAT
+        ↓
+show ip nat statistics
+        ↓
+NAT inside interface missing/incorrect
+        ↓
+Configure G0/0/0.20 as NAT inside
+        ↓
+Keep G0/0/0.30 as NAT outside
+        ↓
+Verify NAT translations/statistics
+        ↓
+NET-011 COMPLETE

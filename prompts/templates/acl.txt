@@ -1,0 +1,6 @@
+Domain: Access Control List (ACL) Troubleshooting
+Focus Points:
+- Inspect `show access-lists` for deny/permit rule sequences and match counts.
+- Verify source IP, destination IP, protocol, and port parameters.
+- Verify interface application (`ip access-group <name> in|out`).
+- Check guest isolation rules and outbound service filtering (e.g. DNS port 53).

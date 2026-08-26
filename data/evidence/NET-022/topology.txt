@@ -1,0 +1,1 @@
+Laptop0 (Client) -> AccessPoint0 (Office-A) / AccessPoint1 (Conf-Room-B) -> Switch0 (2960-24TT)

@@ -1,0 +1,4 @@
+SSID: Staff_WiFi
+Authentication: WPA2-PSK
+PSK Passphrase: WrongKey123
+Link Status: Not Connected

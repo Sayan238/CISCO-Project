@@ -1,0 +1,5 @@
+DNS request timed out.
+timeout was 2 seconds.
+Server: Unknown
+Address: 192.168.1.10
+*** Request to Unknown timed-out.

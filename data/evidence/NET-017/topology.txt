@@ -1,0 +1,1 @@
+PC0, PC1 -> Switch0 -> Router0 (GigabitEthernet0/0)

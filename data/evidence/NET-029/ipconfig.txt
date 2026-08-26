@@ -1,0 +1,1 @@
+Cisco Packet Tracer Web Server Welcome Page loads up completely onto the screen with a 100% successful response handshake match.

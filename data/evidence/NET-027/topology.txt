@@ -1,0 +1,1 @@
+Laptop-Modern (5GHz) & Legacy_Printer (2.4GHz) -> WRT300N_Wireless_Router -> Switch0 -> Internal_Network

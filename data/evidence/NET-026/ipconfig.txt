@@ -1,0 +1,7 @@
+Connection-specific DNS Suffix . : 
+Physical Address. . . . . . . . . : 0060.2F70.1111
+DHCP Enabled. . . . . . . . . . . : Yes
+IP Address. . . . . . . . . . . . : 192.168.0.5
+Subnet Mask . . . . . . . . . . . : 255.255.255.0
+Default Gateway . . . . . . . . . : 192.168.0.1
+DHCP Server . . . . . . . . . . . : 192.168.0.1

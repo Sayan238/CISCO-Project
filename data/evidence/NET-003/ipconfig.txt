@@ -1,0 +1,10 @@
+Before the fault:
+VLAN 30 SERVER was active and Fa0/3 was assigned to VLAN 30.
+
+After the fault:
+VLAN 30 SERVER is missing from the VLAN table.
+
+Current VLANs:
+VLAN 10 STUDENT - active - Fa0/1
+VLAN 20 STAFF - active - Fa0/2
+VLAN 30 SERVER - MISSING

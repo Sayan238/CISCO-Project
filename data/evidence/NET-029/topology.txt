@@ -1,0 +1,1 @@
+Web_Server (Fa0) -> Switch0 (Fa0/2) -> Router0 (Gi0/0 LAN / Gi0/1 WAN) -> External_Laptop (Fa0)

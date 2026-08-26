@@ -1,0 +1,22 @@
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0     192.168.10.1    YES manual administratively down down
+GigabitEthernet0/1     unassigned      YES unset  administratively down down
+Vlan1                  unassigned      YES unset  administratively down down
+EXPECTED FAULT:
+GigabitEthernet0/0 has been administratively shut down, so the interface (and therefore DHCP service reachable through it) is unavailable to PC0 and PC1.
+OSI LAYER:
+Layer 1/2
+CONCEPT:
+interface-down
+SEVERITY:
+High
+EXPECTED NEXT COMMAND:
+show ip dhcp binding
+EXPECTED FIX:
+Bring the interface back up with 'no shutdown' under GigabitEthernet0/0.
+FIX COMMAND:
+configure terminal
+interface gigabitEthernet0/0
+no shutdown
+exit

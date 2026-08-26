@@ -1,0 +1,4 @@
+Laptop0 > ping 192.168.10.50
+Pinging 192.168.10.50 with 32 bytes of data:
+Reply from 192.168.20.1: Destination host unreachable.
+Reply from 192.168.20.1: Destination host unreachable.

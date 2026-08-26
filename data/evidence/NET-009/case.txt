@@ -1,0 +1,93 @@
+CASE ID: NET-009
+
+TITLE:
+Wrong Subnet Mask on PC
+
+SYMPTOM:
+The PC has an incorrect subnet mask configured, causing incorrect network boundary interpretation.
+
+TOPOLOGY:
+PC2 -> Switch0 Fa0/2 -> Router0
+
+PC CONFIGURATION:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.0.0
+Default Gateway: 192.168.20.1
+
+EXPECTED CONFIGURATION:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+FAULT INTRODUCED:
+The subnet mask was changed from 255.255.255.0 to 255.255.0.0.
+
+FAULT:
+Incorrect subnet mask configured on the PC.
+
+EVIDENCE COMMAND:
+ipconfig
+
+EVIDENCE:
+
+IPv4 Address:
+192.168.20.10
+
+Subnet Mask:
+255.255.0.0
+
+Default Gateway:
+192.168.20.1
+
+EXPECTED SUBNET MASK:
+255.255.255.0
+
+ACTUAL SUBNET MASK:
+255.255.0.0
+
+LOCAL CONNECTIVITY TEST:
+Command:
+ping 192.168.20.1
+
+Result:
+Packets Sent: 4
+Packets Received: 4
+Packets Lost: 0%
+
+REMOTE CONNECTIVITY TEST:
+Command:
+ping 192.168.30.10
+
+Result:
+Packets Sent: 4
+Packets Received: 4
+Packets Lost: 0%
+
+NOTE:
+Connectivity may still work in this topology because the incorrect /16 mask makes 192.168.30.10 appear to be on the same local network. However, the subnet configuration is incorrect and can cause incorrect routing behavior.
+
+EXPECTED FAULT:
+PC subnet mask is incorrectly configured as 255.255.0.0.
+
+OSI LAYER:
+Layer 3
+
+CONCEPT:
+IP Addressing / Subnet Mask
+
+SEVERITY:
+Medium
+
+EXPECTED NEXT COMMAND:
+ipconfig
+
+EXPECTED FIX:
+Change the subnet mask to 255.255.255.0.
+
+FIX:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+EXPECTED RESULT AFTER FIX:
+The PC should use the correct 192.168.20.0/24 network.

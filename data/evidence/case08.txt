@@ -1,0 +1,94 @@
+CASE ID: NET-008
+
+TITLE:
+Wrong PC Default Gateway
+
+SYMPTOM:
+The PC can communicate with devices on its local subnet but cannot communicate with devices on another VLAN.
+
+TOPOLOGY:
+PC2 -> Switch0 Fa0/2 -> Router0
+
+PC CONFIGURATION:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.254
+
+EXPECTED CONFIGURATION:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+FAULT INTRODUCED:
+The PC default gateway was changed from 192.168.20.1 to 192.168.20.254.
+
+FAULT:
+Wrong default gateway configured on the PC.
+
+EVIDENCE COMMAND:
+ipconfig
+
+EVIDENCE:
+
+IPv4 Address:
+192.168.20.10
+
+Subnet Mask:
+255.255.255.0
+
+Default Gateway:
+192.168.20.254
+
+EXPECTED DEFAULT GATEWAY:
+192.168.20.1
+
+LOCAL CONNECTIVITY TEST:
+Command:
+ping 192.168.20.1
+
+Result:
+Reply received.
+Packets Sent: 4
+Packets Received: 4
+Packets Lost: 0%
+
+The local gateway is reachable because it is on the same subnet.
+
+REMOTE CONNECTIVITY TEST:
+Command:
+ping 192.168.30.10
+
+Result:
+Request timed out.
+Packets Sent: 4
+Packets Received: 0
+Packets Lost: 4
+100% packet loss.
+
+The PC cannot reach the remote VLAN because the configured default gateway is incorrect.
+
+EXPECTED FAULT:
+PC default gateway is incorrectly configured as 192.168.20.254.
+
+OSI LAYER:
+Layer 3
+
+CONCEPT:
+IP Addressing / Default Gateway / Routing
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+ipconfig
+
+EXPECTED FIX:
+Change the PC default gateway to 192.168.20.1.
+
+FIX:
+IP Address: 192.168.20.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.20.1
+
+EXPECTED RESULT AFTER FIX:
+The PC should be able to communicate with devices in other VLANs through Router0.

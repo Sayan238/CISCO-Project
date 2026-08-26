@@ -1,0 +1,1 @@
+PC2 -> Switch0 Fa0/2 -> Router0

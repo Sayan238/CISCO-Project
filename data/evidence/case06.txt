@@ -1,0 +1,79 @@
+CASE ID: NET-006
+
+TITLE:
+VLAN 30 Router Subinterface Shutdown
+
+SYMPTOM:
+The device in VLAN 30 cannot communicate with its default gateway.
+
+TOPOLOGY:
+Device/Server1 -> Switch0 Fa0/3 -> Switch0 Fa0/4 -> Router0 G0/0/0.30
+
+EXPECTED VLAN:
+VLAN 30 - SERVER
+
+EXPECTED GATEWAY:
+192.168.30.1
+
+ROUTER INTERFACE:
+GigabitEthernet0/0/0.30
+
+EXPECTED CONFIGURATION:
+The VLAN 30 router subinterface should be operational.
+
+FAULT INTRODUCED:
+The VLAN 30 router subinterface was administratively shut down.
+
+FAULT COMMAND:
+interface gigabitEthernet 0/0/0.30
+shutdown
+
+EVIDENCE COMMAND:
+show ip interface brief
+
+EVIDENCE:
+
+GigabitEthernet0/0/0.30
+IP Address: 192.168.30.1
+Status: administratively down
+Protocol: down
+
+The VLAN 30 gateway interface is administratively down.
+
+OTHER ROUTER INTERFACES:
+
+GigabitEthernet0/0/0 - up/up
+GigabitEthernet0/0/0.10 - 192.168.10.1 - up/up
+GigabitEthernet0/0/0.20 - 192.168.20.1 - up/up
+GigabitEthernet0/0/0.30 - 192.168.30.1 - administratively down/down
+
+EXPECTED FAULT:
+Router0 GigabitEthernet0/0/0.30 is shut down.
+
+OSI LAYER:
+Layer 3
+
+CONCEPT:
+Router-on-a-Stick / Inter-VLAN Routing
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+show ip interface brief
+
+EXPECTED FIX:
+Enable the VLAN 30 router subinterface.
+
+FIX COMMAND:
+configure terminal
+interface gigabitEthernet 0/0/0.30
+no shutdown
+end
+
+EXPECTED RESULT AFTER FIX:
+GigabitEthernet0/0/0.30 should show:
+Status: up
+Protocol: up
+
+The VLAN 30 gateway 192.168.30.1 should become operational.

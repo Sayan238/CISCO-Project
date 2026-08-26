@@ -1,0 +1,81 @@
+CASE ID: NET-007
+
+TITLE:
+Wrong IP Address on VLAN 30 Gateway
+
+SYMPTOM:
+The device in VLAN 30 cannot communicate with its expected default gateway.
+
+TOPOLOGY:
+Device/Server1 -> Switch0 Fa0/3 -> Switch0 Fa0/4 -> Router0 G0/0/0.30
+
+EXPECTED VLAN:
+VLAN 30 - SERVER
+
+EXPECTED GATEWAY:
+192.168.30.1
+
+ACTUAL GATEWAY:
+192.168.30.254
+
+ROUTER INTERFACE:
+GigabitEthernet0/0/0.30
+
+EXPECTED CONFIGURATION:
+The VLAN 30 router subinterface should use IP address 192.168.30.1/24.
+
+FAULT INTRODUCED:
+The IP address of the VLAN 30 router subinterface was changed to 192.168.30.254.
+
+FAULT COMMAND:
+interface gigabitEthernet 0/0/0.30
+ip address 192.168.30.254 255.255.255.0
+
+EVIDENCE COMMAND:
+show ip interface brief
+
+EVIDENCE:
+
+GigabitEthernet0/0/0.30
+IP Address: 192.168.30.254
+Status: up
+Protocol: up
+
+The interface is operational, but the configured IP address is incorrect.
+
+EXPECTED IP:
+192.168.30.1
+
+ACTUAL IP:
+192.168.30.254
+
+EXPECTED FAULT:
+Wrong IP address configured on Router0 G0/0/0.30.
+
+OSI LAYER:
+Layer 3
+
+CONCEPT:
+IP Addressing / Router-on-a-Stick
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+show ip interface brief
+
+EXPECTED FIX:
+Change the VLAN 30 gateway IP back to 192.168.30.1.
+
+FIX COMMAND:
+configure terminal
+interface gigabitEthernet 0/0/0.30
+ip address 192.168.30.1 255.255.255.0
+end
+
+EXPECTED RESULT AFTER FIX:
+GigabitEthernet0/0/0.30 should show:
+
+IP Address: 192.168.30.1
+Status: up
+Protocol: up

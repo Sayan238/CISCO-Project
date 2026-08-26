@@ -1,0 +1,87 @@
+CASE ID:
+NET-014
+
+TITLE:
+Correct Trunk Configuration - Reference Case
+
+PKA FILE NAME:
+NET-014-Correct.pkt
+
+OBJECTIVE:
+Provide a correct reference configuration for an 802.1Q trunk link between network devices and verify that the required VLANs are allowed.
+
+TOPOLOGY:
+Switch0 -> Router0
+
+TRUNK INTERFACE:
+FastEthernet0/4
+
+ENCAPSULATION:
+802.1Q
+
+EXPECTED TRUNK CONFIGURATION:
+FastEthernet0/4 operates as a trunk.
+
+EXPECTED COMMAND:
+interface fastEthernet 0/4
+switchport mode trunk
+
+EVIDENCE COMMANDS:
+show interfaces trunk
+show vlan brief
+show running-config
+
+EXPECTED RESULT:
+FastEthernet0/4 should show:
+
+Mode:
+on
+
+Encapsulation:
+802.1q
+
+Status:
+trunking
+
+The required VLANs should be allowed on the trunk.
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+Trunking / 802.1Q
+
+SEVERITY:
+Low
+
+STATUS:
+Correct / Reference Configuration
+
+EXPECTED NEXT COMMAND:
+show interfaces trunk
+
+VERIFICATION:
+show interfaces trunk
+show vlan brief
+show running-config
+
+EXPECTED FINAL STATE:
+FastEthernet0/4 is operating as an 802.1Q trunk.
+Required VLANs are allowed and active.
+The trunk link is forwarding traffic correctly.
+
+TROUBLESHOOTING FLOW:
+
+Check inter-device connectivity
+        ↓
+Check trunk status
+        ↓
+show interfaces trunk
+        ↓
+Verify 802.1Q
+        ↓
+Verify allowed VLANs
+        ↓
+Trunk configuration confirmed
+        ↓
+NET-014 COMPLETE

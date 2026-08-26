@@ -1,0 +1,1 @@
+Laptop0 -> Switch0 -> Local_DNS_Server (192.168.1.10) -> Router0/Firewall -> Internet (8.8.8.8)

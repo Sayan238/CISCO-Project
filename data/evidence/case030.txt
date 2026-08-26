@@ -1,0 +1,95 @@
+CASE ID:
+NET-015
+
+TITLE:
+Correct VLAN 30 Configuration - Reference Case
+
+PKA FILE NAME:
+NET-015-Correct.pkt
+
+OBJECTIVE:
+Provide a correct reference configuration where VLAN 30 exists and the required switch port is assigned to VLAN 30.
+
+TOPOLOGY:
+Server -> Switch0 -> Router0
+
+VLAN INFORMATION:
+VLAN ID:
+30
+
+VLAN NAME:
+SERVER
+
+ACCESS INTERFACE:
+FastEthernet0/3
+
+EXPECTED CONFIGURATION:
+
+VLAN 30 exists on Switch0.
+
+VLAN 30 name:
+SERVER
+
+FastEthernet0/3 is configured as an access port.
+
+FastEthernet0/3 belongs to VLAN 30.
+
+EXPECTED COMMANDS:
+
+vlan 30
+name SERVER
+
+interface fastEthernet 0/3
+switchport mode access
+switchport access vlan 30
+
+EVIDENCE COMMANDS:
+show vlan brief
+show running-config
+show interfaces switchport
+
+EXPECTED RESULT:
+show vlan brief should show:
+
+30 SERVER active Fa0/3
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+VLAN
+
+SEVERITY:
+Low
+
+STATUS:
+Correct / Reference Configuration
+
+EXPECTED NEXT COMMAND:
+show vlan brief
+
+VERIFICATION:
+show vlan brief
+show running-config
+
+EXPECTED FINAL STATE:
+VLAN 30 exists.
+VLAN 30 is active.
+FastEthernet0/3 is assigned to VLAN 30.
+The server connected to Fa0/3 belongs to VLAN 30.
+
+TROUBLESHOOTING FLOW:
+
+Check server connectivity
+        ↓
+Check VLAN database
+        ↓
+show vlan brief
+        ↓
+Verify VLAN 30
+        ↓
+Verify Fa0/3 assignment
+        ↓
+VLAN 30 configuration confirmed
+        ↓
+NET-015 COMPLETE

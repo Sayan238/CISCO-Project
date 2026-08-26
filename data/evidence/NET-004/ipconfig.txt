@@ -1,0 +1,19 @@
+Fa0/4 is still operating as a trunk.
+
+Fa0/4:
+Mode: on
+Encapsulation: 802.1q
+Status: trunking
+Native VLAN: 1
+
+VLANs allowed on trunk:
+1,10,20
+
+VLAN 30 is NOT allowed on the trunk.
+
+VLAN 30 still exists on the switch:
+
+VLAN 30 SERVER active Fa0/3
+
+Therefore, the problem is not that VLAN 30 is missing.
+The problem is that VLAN 30 is not allowed on the trunk.

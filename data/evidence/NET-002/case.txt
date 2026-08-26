@@ -1,0 +1,76 @@
+CASE ID: NET-002
+
+TITLE:
+Trunk Disabled
+
+SYMPTOM:
+PC1 cannot reach its default gateway.
+
+TOPOLOGY:
+PC1 -> Switch0 -> Router0
+
+PC CONFIGURATION:
+IP Address: 192.168.10.10
+Subnet Mask: 255.255.255.0
+Default Gateway: 192.168.10.1
+
+EXPECTED CONFIGURATION:
+Switch0 Fa0/4 should be configured as a trunk.
+
+ACTUAL CONFIGURATION:
+Switch0 Fa0/4 is configured as an access port.
+
+TRUNK PORT:
+FastEthernet0/4
+
+EVIDENCE COMMAND:
+show interfaces trunk
+
+EVIDENCE:
+No trunk interface is displayed.
+
+VLAN EVIDENCE:
+Command: show vlan brief
+
+Fa0/4 appears under VLAN 1 (default).
+
+CONFIGURATION EVIDENCE:
+interface FastEthernet0/4
+switchport mode access
+
+PING TEST:
+Command: ping 192.168.10.1
+
+Result:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Packets:
+Sent = 4
+Received = 0
+Lost = 4
+Loss = 100%
+
+EXPECTED FAULT:
+Switch0 Fa0/4 is not configured as a trunk.
+
+OSI LAYER:
+Layer 2
+
+CONCEPT:
+Trunking / 802.1Q
+
+SEVERITY:
+High
+
+EXPECTED NEXT COMMAND:
+show interfaces trunk
+
+EXPECTED FIX:
+Configure Switch0 Fa0/4 as a trunk.
+
+FIX COMMAND:
+interface fastEthernet 0/4
+switchport mode trunk

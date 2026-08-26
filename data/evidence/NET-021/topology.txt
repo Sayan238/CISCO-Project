@@ -1,0 +1,1 @@
+Laptop0 (Guest) -> AP0 -> Switch0 (VLAN 20) -> Router0 -> Switch0 (VLAN 10) -> Server0 (Internal)

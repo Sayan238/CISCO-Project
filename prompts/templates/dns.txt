@@ -1,0 +1,6 @@
+Domain: DNS Service & Resolution Troubleshooting
+Focus Points:
+- Check administrative status of DNS service on server (`DNS Service ON/OFF`).
+- Verify host and DHCP-distributed DNS server IP address settings.
+- Test DNS port 53 connectivity and UDP/TCP firewall/ACL rules.
+- Verify domain record lookup mappings on DNS server.
