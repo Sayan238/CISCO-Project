@@ -1,7 +1,7 @@
 [
   {
     "case_id": "NET-001",
-    "timestamp": "2026-08-26T07:41:52.451769+00:00",
+    "timestamp": "2026-08-26T08:00:56.360257+00:00",
     "rule_checker_result": {
       "rule_match": true,
       "rule_case": "NET-001",
